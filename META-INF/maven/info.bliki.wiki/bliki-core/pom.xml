@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>info.bliki.wiki</groupId>
+        <artifactId>bliki</artifactId>
+        <version>3.1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>bliki-core</artifactId>
+    <packaging>jar</packaging>
+    <name>Bliki (Core)</name>
+    <version>3.1.0</version>
+    <description> This is the core project.</description>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.luaj</groupId>
+            <artifactId>luaj-jse</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>software.betamax</groupId>
+            <artifactId>betamax-junit</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>git submodule update</id>
+                        <phase>initialize</phase>
+                        <configuration>
+                            <executable>git</executable>
+                            <arguments>
+                                <argument>submodule</argument>
+                                <argument>update</argument>
+                                <argument>--init</argument>
+                                <argument>--recursive</argument>
+                            </arguments>
+                            <workingDirectory>${project.parent.basedir}</workingDirectory>
+                        </configuration>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/scribunto/engines/LuaCommon/lualib</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
+
+        <testResources>
+            <testResource>
+                <directory>${basedir}/src/main/scribunto/tests/engines/LuaCommon</directory>
+                <filtering>false</filtering>
+            </testResource>
+            <testResource>
+                <directory>${basedir}/src/test/resources</directory>
+                <filtering>false</filtering>
+            </testResource>
+        </testResources>
+    </build>
+</project>
