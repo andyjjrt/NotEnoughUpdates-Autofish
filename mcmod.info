@@ -1,0 +1,16 @@
+[
+{
+  "modid": "notenoughupdates",
+  "name": "NotEnoughUpdates",
+  "description": "Mod that shows recipes and useful info for Hypixel's Skyblock gamemode.",
+  "version": "2.0-PRE",
+  "mcversion": "1.8.9",
+  "url": "https://github.com/Moulberry/NotEnoughUpdates/",
+  "updateUrl": "https://github.com/Moulberry/NotEnoughUpdates/releases",
+  "authorList": ["Moulberry"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

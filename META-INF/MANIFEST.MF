@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+MixinConfigs: mixins.notenoughupdates.json
+FMLCorePluginContainsFMLMod: true
+FMLAT: notenoughupdates_at.cfg
+TweakClass: org.spongepowered.asm.launch.MixinTweaker
+ForceLoadAsMod: true
+Main-Class: NotSkyblockAddonsInstallerFrame
+
